@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    stages{
+        stage(countinuious download){
+            steps{
+                git 'https//'
+            }
+        }
+        stage(countinuious build){
+            steps{
+                sh ' mvn clean package'
+            }
+        }
+        stage(countinuious test){
+            steps{
+                sh ' mvn test'
+            }
+        }
+        stage(countinuious deploy){
+            steps{
+                sh 'scp target/myapp.war '
+            }
+        }
+        stage(countinuious delivery){
+            steps{
+                sh 'scp target/myapp.war '
+            }
+        }
+        
+        }
+
+    }
+    
